@@ -8,7 +8,7 @@
 # Karan      04/11/13  Initial Authoring
 #
 # These files have been made available online through a Creative
-Commons Attribution-ShareAlike 3.0  license.
+# Commons Attribution-ShareAlike 3.0  license.
 # (http://creativecommons.org/licenses/by-sa/3.0/)
 
 # Revised by T. Cooper 12/18
@@ -35,7 +35,7 @@ Commons Attribution-ShareAlike 3.0  license.
 
 import time
 
-import brickpi3 #import BrickPi.py file to use BrickPi operations
+import Software.Python.brickpi3 as brickpi3 #import BrickPi.py file to use BrickPi operations
 
 import curses   # import curses for text processing
 

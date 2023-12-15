@@ -13,13 +13,11 @@
 # 
 # Results:  When you run this program, you will see the raw sensor value as well as the sensor voltage.
 
-from __future__ import print_function # use python 3 syntax but make it compatible with python 2
-from __future__ import division       #                           ''
-
 import time     # import the time library for the sleep function
-import brickpi3 # import the BrickPi3 drivers
+from Software.Python.brickpi3 import *
+ # import the BrickPi3 drivers
 
-BP = brickpi3.BrickPi3() # Create an instance of the BrickPi3 class. BP will be the BrickPi3 object.
+BP = BrickPi3() # Create an instance of the BrickPi3 class. BP will be the BrickPi3 object.
 
 BP.set_sensor_type(BP.PORT_1, BP.SENSOR_TYPE.CUSTOM, [(BP.SENSOR_CUSTOM.PIN1_ADC)]) # Configure for an analog on sensor port pin 1, and poll the analog line on pin 1.
 
@@ -36,7 +34,7 @@ try:
         try:
             value = BP.get_sensor(BP.PORT_1)[0] # read the sensor port value
             print("Raw value: %4d   Voltage: %5.3fv" % (value, (value / (4095.0 / BP.get_voltage_5v())))) # print the raw value, and calculate and print the voltage as well
-        except brickpi3.SensorError as error:
+        except SensorError as error:
             print(error)
         
         time.sleep(0.02)  # delay for 0.02 seconds (20ms) to reduce the Raspberry Pi CPU load.
